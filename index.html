@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hornets Extended Hive</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <link rel="stylesheet" href="https://use.typekit.net/[YOUR-KIT-CODE].css">
+    <header>
+        <h1>Claim Your Spot in the Hive!</h1>
+        <p>Let's see where Hornets Nation is repping from!</p>
+    </header>
+    
+    <div id="formOverlay">
+        <form id="pinForm">
+            <h2>Claim Your Spot in the Hive!</h2>
+            <label for="zipCode">Zip Code:</label>
+            <input type="text" id="zipCode" name="zipCode" required />
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" />
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="pinCount">0 fans have joined the map!</div>
+
+    <!-- ✅ Load Firebase, Heatmap, and Map Scripts -->
+    <script type="module" src="./heatmap.js"></script>
+</body>
+</html> 
