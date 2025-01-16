@@ -129,4 +129,10 @@ document.getElementById('pinForm').addEventListener('submit', async function(eve
 // Initialize the Heatmap on Page Load
 document.addEventListener('DOMContentLoaded', function() {
     initHeatmap();
+    
+    // Add click handler for next button
+    document.getElementById('nextButton').addEventListener('click', function() {
+        document.getElementById('welcomeOverlay').style.display = 'none';
+        document.getElementById('formOverlay').style.display = 'flex';
+    });
 });
