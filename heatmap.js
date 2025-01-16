@@ -1,6 +1,6 @@
 // Import and initialize Firebase Firestore
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -101,6 +101,7 @@ document.getElementById('pinForm').addEventListener('submit', async function(eve
 
             // Save new pin to Firestore
             try {
+                // Save new pin to Firestore
                 await addDoc(collection(db, "pins"), {
                     zipCode: zipCode,
                     name: name,
@@ -109,6 +110,13 @@ document.getElementById('pinForm').addEventListener('submit', async function(eve
                     lon: lon
                 });
                 console.log("Pin successfully saved to Firestore!");
+
+                // Count fans in the same zip code
+                const q = query(collection(db, "pins"), where("zipCode", "==", zipCode));
+                const querySnapshot = await getDocs(q);
+                const zipCodeCount = querySnapshot.size;
+
+                document.getElementById('zipCount').innerText = `${zipCodeCount} fan${zipCodeCount !== 1 ? 's' : ''} in your zip code (${zipCode})`;
             } catch (error) {
                 console.error("Error adding document: ", error);
             }

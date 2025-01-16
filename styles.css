@@ -83,7 +83,7 @@ header p {
 }
 
 /* Pin Count Display */
-#pinCount {
+#pinCount, #zipCount {
     text-align: center;
     font-size: 1.2rem;
     font-weight: bold;
@@ -91,6 +91,11 @@ header p {
     padding: 10px;
     background-color: rgba(0, 255, 255, 0.2); /* Light teal background */
     border-radius: 8px;
+}
+
+#zipCount {
+    font-size: 1rem;
+    background-color: rgba(0, 255, 255, 0.1); /* Slightly more subtle background */
 }
 
 /* Form Overlay */
